@@ -1,0 +1,90 @@
+CREATE DATABASE HomeworkSQL1
+CREATE TABLE teacher(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    mobile VARCHAR(11) NOT NULL,
+	address TEXT NOT NULL
+)
+CREATE TABLE class(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name TEXT NOT NULL,
+    id_teacher INT NOT NULL,
+    FOREIGN KEY (id_teacher) REFERENCES teacher(id)
+)
+CREATE TABLE student(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name TEXT NOT NULL,
+    birthday DATE NOT NULL,
+    address TEXT NOT NULL,
+    mobile VARCHAR(11) NOT NULL,
+    email TEXT NOT NULL,
+    id_class INT NOT NULL,
+    FOREIGN KEY (id_class) REFERENCES class(id)
+)
+CREATE TABLE subject(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name TEXT NOT NULL
+)
+CREATE TABLE point(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_subject INT NOT NULL,
+    id_student INT NOT NULL,
+    FOREIGN KEY (id_subject) REFERENCES subject(id),
+    FOREIGN KEY (id_student) REFERENCES student(id)
+)
+
+insert into teacher (id, name, email, mobile, address) values (1, 'Nanice Bath', 'nbath0@cdc.gov', '4078675615', '605 Riverside Hill');
+insert into teacher (id, name, email, mobile, address) values (2, 'Riley Jarville', 'rjarville1@techcrunch.com', '1394597214', '3997 Dapin Point');
+insert into teacher (id, name, email, mobile, address) values (3, 'Nat Birnie', 'nbirnie2@theglobeandmail.com', '3312653516', '59610 Melvin Crossing');
+insert into teacher (id, name, email, mobile, address) values (4, 'Forester Roughan', 'froughan3@mail.ru', '5591192297', '2106 Marcy Crossing');
+insert into teacher (id, name, email, mobile, address) values (5, 'Edgard Souza', 'esouza4@illinois.edu', '2397024632', '46 Schlimgen Park');
+insert into teacher (id, name, email, mobile, address) values (6, 'Thatch Shakshaft', 'tshakshaft5@arstechnica.com', '8179618803', '1171 Straubel Place');
+insert into teacher (id, name, email, mobile, address) values (7, 'Brett Gobolos', 'bgobolos6@amazonaws.com', '5705181574', '9 Namekagon Place');
+insert into teacher (id, name, email, mobile, address) values (8, 'Mari Smitherman', 'msmitherman7@google.com', '4911547842', '37146 Sugar Avenue');
+insert into teacher (id, name, email, mobile, address) values (9, 'Georgetta Gagan', 'ggagan8@vinaora.com', '6053671983', '4 Fuller Point');
+insert into teacher (id, name, email, mobile, address) values (10, 'Frankie Gyngyll', 'fgyngyll9@noaa.gov', '9834331702', '99 Sutteridge Point');
+
+insert into class (id, name, id_teacher) values (1, 'Cathi Swidenbank', 2);
+insert into class (id, name, id_teacher) values (2, 'Fin Dohrmann', 5);
+insert into class (id, name, id_teacher) values (3, 'Angelica Slaney', 6);
+insert into class (id, name, id_teacher) values (4, 'Mathian Chellam', 4);
+insert into class (id, name, id_teacher) values (5, 'Desdemona Starmer', 7);
+insert into class (id, name, id_teacher) values (6, 'Lina McLese', 3);
+insert into class (id, name, id_teacher) values (7, 'Verna Lessmare', 1);
+insert into class (id, name, id_teacher) values (8, 'Thomas Drains', 7);
+insert into class (id, name, id_teacher) values (9, 'Katherina Benka', 6);
+insert into class (id, name, id_teacher) values (10, 'Ab Rawlison', 6);
+
+insert into student (id, name, birthday, address, mobile, email, id_class) values (1, 'Gabriellia Clendennen', '2021-11-24', '55 Bluestem Point', '6234271190', 'gclendennen0@macromedia.com', 3);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (2, 'Livia Hatry', '2021-11-28', '22 Schiller Circle', '1258634130', 'lhatry1@google.fr', 10);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (3, 'Mead Benoey', '2021-10-20', '2 Main Crossing', '6173195104', 'mbenoey2@about.me', 1);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (4, 'Genny Sugg', '2021-01-20', '20192 Tennessee Circle', '4567352401', 'gsugg3@google.es', 2);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (5, 'Alyse Bonhomme', '2021-10-08', '707 Bay Hill', '5174713861', 'abonhomme4@wix.com', 7);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (6, 'Shalna Lansly', '2021-05-30', '24253 Mendota Street', '8519289544', 'slansly5@businessinsider.com', 5);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (7, 'Barbra Hallowell', '2021-10-04', '27 Dayton Way', '7293616658', 'bhallowell6@sciencedirect.com', 9);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (8, 'Mamie Surby', '2021-02-04', '95 Corry Crossing', '4962831880', 'msurby7@bravesites.com', 8);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (9, 'Christoph Lohrensen', '2021-02-12', '2 Scott Road', '2466581872', 'clohrensen8@cmu.edu', 5);
+insert into student (id, name, birthday, address, mobile, email, id_class) values (10, 'Raffarty De la Yglesias', '2021-06-05', '2 Center Circle', '4401770923', 'rde9@economist.com', 4);
+
+insert into subject (id, name) values (1, 'Granville Walthall');
+insert into subject (id, name) values (2, 'Curt Cassam');
+insert into subject (id, name) values (3, 'Aluino Battany');
+insert into subject (id, name) values (4, 'Janet Fitzmaurice');
+insert into subject (id, name) values (5, 'Minni Romaine');
+insert into subject (id, name) values (6, 'Marieann Burkert');
+insert into subject (id, name) values (7, 'Tabitha Pardoe');
+insert into subject (id, name) values (8, 'Vonni Anyene');
+insert into subject (id, name) values (9, 'Wendye Terrans');
+insert into subject (id, name) values (10, 'Faith Proudler');
+
+insert into point (id, id_subject, id_student) values (1, 6, 4);
+insert into point (id, id_subject, id_student) values (2, 7, 3);
+insert into point (id, id_subject, id_student) values (3, 10, 3);
+insert into point (id, id_subject, id_student) values (4, 9, 10);
+insert into point (id, id_subject, id_student) values (5, 7, 1);
+insert into point (id, id_subject, id_student) values (6, 2, 8);
+insert into point (id, id_subject, id_student) values (7, 3, 6);
+insert into point (id, id_subject, id_student) values (8, 1, 10);
+insert into point (id, id_subject, id_student) values (9, 9, 1);
+insert into point (id, id_subject, id_student) values (10, 10, 10);
